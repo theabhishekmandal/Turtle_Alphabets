@@ -24,7 +24,7 @@ pip install Turtle
 ```
 INPUT - abhishek
 
-OUTPUT - ABHISHEK
+OUTPUT - https://github.com/theabhishekmandal/Turtle_Alphabets/blob/master/image.png
 ```
 
 ## Limitations
