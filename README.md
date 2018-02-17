@@ -38,7 +38,7 @@ And ,if the string ends in one line in the turtle screen then the cursor won't g
 
 ## Built With
 
-* [Anaconda](https://anaconda.org/anaconda/python) - Python version
+* [Anaconda](https://anaconda.org/anaconda/python) - Python3
 
 
 ## Authors
