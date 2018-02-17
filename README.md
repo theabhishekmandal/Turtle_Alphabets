@@ -24,7 +24,7 @@ pip install Turtle
 ```
 INPUT - abhishek
 OUTPUT
-'''
+```
 [![turtlealphabet](https://raw.github.com/theabhishekmandal/Turtle_Alphabets/blob/master/image.png)]
 
 
