@@ -23,9 +23,9 @@ pip install Turtle
 ## Example 
 ```
 INPUT - abhishek
-OUTPUT
+OUTPUT -
 ```
-[![turtlealphabet](https://raw.github.com/theabhishekmandal/Turtle_Alphabets/blob/master/image.png)]
+![turtlealphabet](https://github.com/theabhishekmandal/Turtle_Alphabets/blob/master/image.png)
 
 
 ## Limitations
