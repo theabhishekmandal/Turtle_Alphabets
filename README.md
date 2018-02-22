@@ -7,7 +7,7 @@ Alphabets on the screen using the  Turtle module
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+## Prerequisites
 
 Turtle module, functools module 
 
@@ -30,11 +30,13 @@ OUTPUT -
 
 ## Limitations
 
-The code works fine for all alphabets ,but not for numeric digits or special characters
+1 - The code works fine for all alphabets ,but not for numeric digits or special characters
 
-Also, the screen does not open in full screen mode till now, still working...
+2 - Also, the screen does not open in full screen mode till now, still working...
 
-And ,if the string ends in one line in the turtle screen then the cursor won't go to next line
+3 - if the string ends in one line in the turtle screen then the cursor won't go to next line
+
+4 - if the speed of the cursor is increased then the slowness of the cursor is visible while drawing curves. 
 
 ## Built With
 
