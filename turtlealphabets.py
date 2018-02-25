@@ -833,7 +833,7 @@ if __name__ == '__main__':
     # setting the pen attributes and it's coordinates
     apen.pensize(5)
     apen.pencolor("red")
-    apen.speed("slow")
+    apen.speed("slowest")
     apen.up()
     # apen.goto(apen.xcor(), apen.ycor() +  768.00 / 2 - len)
     apen.down()
