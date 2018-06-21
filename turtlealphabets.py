@@ -124,7 +124,7 @@ def c(self):
     setpen(self, perpendicular / 2)
     '''
     # going to top right corner to make the curve
-    self.seth(self.towards(-1,0))
+    self.seth(180)
     self.up()
     self.goto(save_x + perpendicular / 2, save_y + perpendicular)
     self.down()
@@ -247,7 +247,7 @@ def g(self):
     '''
 
     # making the the largest curve
-    self.seth(self.towards(-1, 0))
+    self.seth(180)
     self.up()
     self.goto(save_x + perpendicular / 2, save_y + perpendicular)
     self.down()
@@ -488,6 +488,13 @@ def o(self):
 
     # making the ellipse
     self.ellipse(perpendicular / 4, perpendicular / 2)
+
+    # making a small arc
+    self.up()
+    self.goto(save_x + perpendicular / 4, save_y + perpendicular)
+    self.down()
+    self.ellipse(perpendicular / 10, perpendicular / 10 , angle =  pi, heading = 180)
+    self.ellipse(perpendicular / 4, perpendicular / 4, angle=(pi / 3) + 0.5)
 
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
@@ -773,7 +780,7 @@ def y(self):
     self.fd(hyp / 2)
 
     # setting the cursor for next alphabet
-    setpen(self, perpendicular / 4)
+    setpen(self, perpendicular / 2)
 
 def z(self):
     global len
@@ -805,9 +812,277 @@ def z(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+def _1(self):
+    global len
+    perpendicular = len
+
+    # saving coordinates for original location
+    savepos(self)
+
+    # making the lower dash
+    self.seth(0)
+    self.fd(perpendicular / 2)
+    self.up()
+    self.bk(perpendicular / 4)
+    self.down()
+
+    # making the pependicular line
+    self.lt(90)
+    self.fd(perpendicular)
+    self.lt(90)
+
+
+    # calculating angle
+    perp = perpendicular / 4
+    hyp = hypot(perp, perp)
+    angle = asin(perp/hyp) * (180 / pi)
+
+    # now making the slash
+    self.seth(180)
+    self.lt(angle)
+    self.fd(hyp)
+
+    # setting the cursor for next number
+    setpen(self, perpendicular / 2)
+
+def _2(self):
+    global len
+    perpendicular = len
+
+    # saving coordinates for original location
+    savepos(self)
+
+    # setting the cursor to the top to draw the semi circle
+    self.up()
+    self.seth(0)
+    self.goto(save_x + perpendicular / 2, save_y + 3 * perpendicular / 4)
+    self.down()
+
+    # drawing the semi circle
+    self.seth(90)
+    self.circle(perpendicular / 4, 180)
+    self.seth(180)
+    self.up()
+    self.bk(perpendicular / 2)
+
+    # calculating angle and hypotenuse
+    perp = 3 * perpendicular / 4
+    base = perpendicular / 2
+    hyp = hypot(perp, base)
+    angle = asin(perp / hyp) * (180 / pi)
+    self.lt(angle)
+    self.down()
+
+    # making the slash downward
+    self.fd(hyp)
+
+    # making the downward dash
+    self.seth(0)
+    self.fd(perpendicular / 2)
+
+    # setting the cursor for next number
+    setpen(self, perpendicular / 2)
+
+def _3(self):
+    global len
+    perpendicular = len
+
+    # saving coordinates for original location
+    savepos(self)
+
+    # moving the cursor and drawing the upper arc
+    self.seth(0)
+    self.up()
+    self.goto(save_x + perpendicular / 4, save_y + perpendicular / 2)
+    self.down()
+    self.circle(perpendicular / 4, 270)
+
+    # moving the cursor and drawing the lower arc
+    self.up()
+    self.seth(270)
+    self.goto(save_x, save_y + perpendicular / 4)
+    self.down()
+    self.circle(perpendicular / 4, 270)
+
+    # setting the cursor for next number
+    setpen(self, perpendicular / 2)
+
+def _4(self):
+    global len
+    perpendicular = len
+
+    # saving coordinates for original location
+    savepos(self)
+
+    # making the perpendicular
+    self.up()
+    base = perpendicular / 2
+    self.fd( 3 * base / 4)
+    self.seth(90)
+    self.down()
+    self.fd(perpendicular)
+
+    # making the slash
+    base = 3 * base / 4
+    perp = 3 * perpendicular / 4
+    hyp = hypot(base, perp)
+    angle = asin(perp / hyp) * (180 / pi)
+    self.seth(180)
+    self.lt(angle)
+    self.fd(hyp)
+
+    # making the forward dash
+    self.seth(0)
+    self.fd(perpendicular / 2)
+
+    # setting the cursor for next number
+    setpen(self, perpendicular / 2)
+
+def _5(self):
+    global len
+    perpendicular = len
+
+    # saving coordinates for original location
+    savepos(self)
+
+    # making the upper dash
+    self.up()
+    self.goto(save_x + perpendicular / 2, save_y + perpendicular)
+    self.down()
+    self.seth(180)
+    self.fd(perpendicular / 2)
+
+    # making the vertical dash
+    self.seth(270)
+    self.fd(perpendicular / 2 - perpendicular / 20)
+
+    # making the curve
+    self.up()
+    self.seth(270)
+    self.goto(save_x, save_y)
+    self.down()
+    self.ellipse(perpendicular / 2, perpendicular / 4 + perpendicular / 60, angle = pi )
+
+    # setting the cursor for next number
+    setpen(self, perpendicular / 2)
+
+def _6(self):
+    global len
+    perpendicular = len
+
+    # saving coordinates for original location
+    savepos(self)
+
+    # making the small arc
+    self.up()
+    self.goto(save_x + perpendicular / 2.5, save_y + perpendicular - perpendicular / 8)
+    self.down()
+    self.ellipse(perpendicular / 4, perpendicular / 1.5, angle = pi / 5, heading = 90)
+
+    # making the upper curve and the inner circle
+    self.ellipse(perpendicular / 4, perpendicular / 2, heading = 180, angle = pi)
+    self.seth(0)
+    self.ellipse(perpendicular / 4, perpendicular / 4 , angle = 2 * pi - pi / 1.5)
+
+    # setting the cursor for next number
+    setpen(self, perpendicular / 2)
+
+def _7(self):
+    global len, save_x, save_y
+    perpendicular = len
+
+    # saving coordinates of original location
+    savepos(self)
+
+    # making the top dash
+    self.up()
+    self.goto(save_x, save_y + perpendicular)
+    self.down()
+    self.fd(perpendicular / 2)
+
+    # making the vertical dash
+    base = perpendicular / 2
+    hyp = hypot(perpendicular, base)
+    angle = acos(perpendicular / hyp) * (180 / pi)
+    self.seth(-90)
+    self.rt(angle)
+    self.fd(hyp)
+
+    # setting the cursor for next alphabet
+    setpen(self, perpendicular / 2)
+
+def _8(self):
+    global len
+    perpendicular = len
+
+    # saving coordinates for original location
+    savepos(self)
+
+    # moving the cursor and drawing the upper arc
+    self.seth(0)
+    self.up()
+    self.goto(save_x + perpendicular / 4, save_y + perpendicular / 2)
+    self.down()
+    self.circle(perpendicular / 4, 360)
+
+    # moving the cursor and drawing the lower arc
+    self.up()
+    self.seth(270)
+    self.goto(save_x, save_y + perpendicular / 4)
+    self.down()
+    self.circle(perpendicular / 4, 360)
+
+    # setting the cursor for next number
+    setpen(self, perpendicular / 2)
+
+def _9(self):
+    global len
+    perpendicular = len
+
+    # saving coordinates for original location
+    savepos(self)
+
+    # moving the cursor and drawing the upper arc
+    self.seth(0)
+    self.up()
+    self.goto(save_x + perpendicular / 4, save_y + perpendicular / 2)
+    self.down()
+    self.circle(perpendicular / 4, 360)
+
+    # moving the cursor and drawing the cursor
+    self.up()
+    self.goto(save_x , save_y + perpendicular / 5)
+    self.down()
+    self.ellipse(perpendicular / 4, perpendicular / 2, angle=pi / 3, heading=270)
+    self.up()
+    self.goto(save_x + perpendicular / 4, save_y)
+    self.down()
+    self.ellipse(perpendicular / 4, perpendicular / 2, angle = pi / 2 + pi / 10)
+
+    # setting the cursor for next number
+    setpen(self, perpendicular / 2)
+
+def _0(self):
+    global len, save_x, save_y
+    perpendicular = len
+
+    # saving coordinates of original location
+    savepos(self)
+
+    # moving by distance perp / 4 to begin the circle
+    self.up()
+    self.goto(save_x + perpendicular / 4, save_y)
+    self.down()
+
+    # making the ellipse
+    self.ellipse(perpendicular / 4, perpendicular / 2)
+
+    # setting the cursor for next alphabet
+    setpen(self, perpendicular / 2)
+
 
 if __name__ == '__main__':
-    global len, save_x, save_y
+    # global len, save_x, save_y
     # setting the coordinates of the axis
     save_x = 0
     save_y = 0
@@ -822,46 +1097,48 @@ if __name__ == '__main__':
     name = input('enter a string to be written \n').strip()
 
     # setting the screen for the turtle cursor
-    # screen = Screen()
-    # screen.screensize(apen.xcor(), apen.ycor())
-    # screen.setup(width = 1.0, height = 1.0, startx = None, starty = None)
-    # screen.setworldcoordinates(0.00, 0.00, 1366.00, 768.00)
+    screen = Screen()
+    screen.screensize(apen.xcor(), apen.ycor())
+    screen.setup(width = 1.0, height = 1.0, startx = None, starty = None)
+    screen_width = 1366.00
+    screen_height = 768.00
+    screen.setworldcoordinates(0.00, 0.00, screen_width, screen_height)
 
     # getting the size of the alphabet
-    len = 50
+    len = 100
 
     # setting the pen attributes and it's coordinates
     apen.pensize(5)
     apen.pencolor("red")
-    apen.speed("slowest")
+    apen.speed("slow")
     apen.up()
-    # apen.goto(apen.xcor(), apen.ycor() +  768.00 / 2 - len)
+    apen.goto(apen.xcor() + 50, apen.ycor() + screen_height - 100)
     apen.down()
 
     # storing function names
-    alphabets = {'a':a,'b':b,'c':c,'d':d,'e':e,'f':f,'g':g,'h':h,'i':i,'j':j,'k':k,'l':l,'m':m,'n':n,'o':o,'p':p,'q':q,'r':r,'s':s,'t':t,'u':u,'v':v,'w':w,'x':x,'y':y,'z':z}
+    alphabets = {'0':_0,'9':_9,'8':_8,'7':_7,'6':_6,'5':_5,'4':_4,'3':_3,'2':_2,'1':_1, 'a':a,'b':b,'c':c,'d':d,
+                 'e':e,'f':f,'g':g,'h':h,'i':i,'j':j,'k':k,'l':l,'m':m,'n':n,'o':o,'p':p,'q':q,'r':r,'s':s,'t':t,
+                 'u':u,'v':v,'w':w,'x':x,'y':y,'z':z}
 
     # storing validated input
     storeinput = []
 
     # validating the input if wrong then print to stderr
     for i in name:
-        if i.isalpha() or i.isspace():
+        if i.isalnum() or i.isspace():
             if i.islower() is False:
                 i = i.swapcase()
             storeinput.append(i)
         else:
-            sys.stderr.write('Wrong input may be digit or a special character')
+            sys.stderr.write('Wrong input may be a special character')
             exit(1)
 
-    # alphabet size
-    len = 50
-
     for i in storeinput:
-        if i.isalpha():
+        if i.isalnum():
             alphabets[i](apen)
         else:
             apen.up()
             apen.goto(apen.xcor() + 20.0, apen.ycor())
             apen.down()
     done()
+
