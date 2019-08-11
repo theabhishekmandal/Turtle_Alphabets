@@ -30,7 +30,7 @@ OUTPUT -
 
 ## Limitations
 
-1 - The code works fine for all alphabets ,but not for special characters
+1 - The code works fine for all alphabets and numericals ,but not for special characters
 
 2 - Also, the screen does not open in full screen mode till now, still working...
 
