@@ -1,24 +1,28 @@
-from turtle import *
+import math
+import sys
+from functools import partial
 from math import *
 from sys import *
-import math
-from functools import partial
-import sys
-global len, save_x, save_y
+from turtle import *
+
+global length, save_x, save_y
+
 
 def savepos(self):
     global save_y, save_x
     save_x = self.xcor()
     save_y = self.ycor()
 
-def setpen(self, perpendicular = 100.0, base = 20.0):
+
+def setpen(self, perpendicular=100.0, base=20.0):
     global save_x, save_y
     self.seth(0)
     self.up()
     self.goto(save_x + perpendicular + base, save_y)
     self.down()
 
-def ellipse(self, x_radius, y_radius,heading = 0,angle = 2 * math.pi, steps = 60):
+
+def ellipse(self, x_radius, y_radius, heading=0, angle=2 * math.pi, steps=60):
     down = self.isdown()  # record pen state for restoration later
 
     if not down:
@@ -54,9 +58,10 @@ def ellipse(self, x_radius, y_radius,heading = 0,angle = 2 * math.pi, steps = 60
     if not down:  # restore pen state on return
         self.penup()
 
+
 def a(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for orignial location
     savepos(self)
@@ -88,15 +93,16 @@ def a(self):
     # setting the cursor for next alphabet
     setpen(self, base)
 
+
 def b(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
     # making the two curves of b
-    self.ellipse(perpendicular / 2, perpendicular / 4, angle = pi)
-    self.ellipse(perpendicular / 2, perpendicular / 4, angle = pi)
+    self.ellipse(perpendicular / 2, perpendicular / 4, angle=pi)
+    self.ellipse(perpendicular / 2, perpendicular / 4, angle=pi)
 
     # making the line of B
     self.seth(self.towards(save_x, save_y))
@@ -105,9 +111,10 @@ def b(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def c(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -133,15 +140,16 @@ def c(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def d(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
 
     # drawing curve of D
-    self.ellipse(perpendicular / 2, perpendicular / 2,heading = pi / 2,angle = radians(180.0))
+    self.ellipse(perpendicular / 2, perpendicular / 2, heading=pi / 2, angle=math.radians(180.0))
     self.seth(self.towards(save_x, save_y))
 
     # drawing the perpendicular line of d
@@ -150,9 +158,10 @@ def d(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def e(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -186,9 +195,10 @@ def e(self):
     # setting cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def f(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -218,9 +228,10 @@ def f(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def g(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -263,9 +274,10 @@ def g(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def h(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -286,28 +298,29 @@ def h(self):
     self.bk(perpendicular / 2)
     self.down()
 
-    #making the right perpendicular lower part
+    # making the right perpendicular lower part
     self.rt(180)
     self.fd(perpendicular / 2)
 
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def i(self):
-    global len
-    perpendicular =len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
 
-    #making the lower dash
+    # making the lower dash
     self.seth(0)
     self.fd(perpendicular / 2)
     self.up()
     self.bk(perpendicular / 4)
     self.down()
 
-    #making the pependicular line
+    # making the pependicular line
     self.lt(90)
     self.fd(perpendicular)
     self.lt(90)
@@ -323,9 +336,10 @@ def i(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def j(self):
-    global len, save_x, save_y
-    perpendicular = len
+    global length, save_x, save_y
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -349,14 +363,15 @@ def j(self):
     self.down()
 
     # making the curve
-    self.ellipse(perpendicular / 4, perpendicular / 4, angle = (pi / 3) + 0.5)
+    self.ellipse(perpendicular / 4, perpendicular / 4, angle=(pi / 3) + 0.5)
 
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def k(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -389,9 +404,10 @@ def k(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def l(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -413,9 +429,10 @@ def l(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def m(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -446,9 +463,10 @@ def m(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def n(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -474,9 +492,10 @@ def n(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def o(self):
-    global len, save_x, save_y
-    perpendicular = len
+    global length, save_x, save_y
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -493,15 +512,16 @@ def o(self):
     self.up()
     self.goto(save_x + perpendicular / 4, save_y + perpendicular)
     self.down()
-    self.ellipse(perpendicular / 10, perpendicular / 10 , angle =  pi, heading = 180)
+    self.ellipse(perpendicular / 10, perpendicular / 10, angle=pi, heading=180)
     self.ellipse(perpendicular / 4, perpendicular / 4, angle=(pi / 3) + 0.5)
 
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def p(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -514,14 +534,15 @@ def p(self):
     self.down()
 
     # making the ellipse
-    self.ellipse(perpendicular / 2, perpendicular / 4, angle = pi)
+    self.ellipse(perpendicular / 2, perpendicular / 4, angle=pi)
 
     # setting cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def q(self):
-    global len, save_x, save_y
-    perpendicular = len
+    global length, save_x, save_y
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -549,9 +570,10 @@ def q(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def r(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -564,7 +586,7 @@ def r(self):
     self.down()
 
     # making the ellipse
-    self.ellipse(perpendicular / 2, perpendicular / 4, angle = pi)
+    self.ellipse(perpendicular / 2, perpendicular / 4, angle=pi)
     self.up()
     self.fd(perpendicular / 2)
     self.down()
@@ -581,27 +603,29 @@ def r(self):
     # setting cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def s(self):
-    global len, save_x, save_y
-    perpendicular = len
+    global length, save_x, save_y
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
 
     # making the lower curve
-    self.ellipse(perpendicular / 2, perpendicular / 4 + perpendicular / 60, angle = pi - pi / 6)
+    self.ellipse(perpendicular / 2, perpendicular / 4 + perpendicular / 60, angle=pi - pi / 6)
 
     # making the upper curve
     self.up()
-    self.goto(save_x + perpendicular / 2, save_y + perpendicular )
-    self.ellipse(perpendicular / 2 , perpendicular / 4 + perpendicular / 60 , heading = 180,angle = pi - pi / 6)
+    self.goto(save_x + perpendicular / 2, save_y + perpendicular)
+    self.ellipse(perpendicular / 2, perpendicular / 4 + perpendicular / 60, heading=180, angle=pi - pi / 6)
 
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def t(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -628,9 +652,10 @@ def t(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def u(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # save coordinates of original location
     savepos(self)
@@ -653,9 +678,10 @@ def u(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def v(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -674,16 +700,17 @@ def v(self):
     self.seth(-angle)
     self.fd(hyp)
 
-    #making the forward slash
+    # making the forward slash
     self.seth(angle)
     self.fd(perpendicular)
 
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def w(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -715,9 +742,10 @@ def w(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def x(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -748,9 +776,10 @@ def x(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def y(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # save coordinates of original location
     savepos(self)
@@ -782,9 +811,10 @@ def y(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def z(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -812,9 +842,10 @@ def z(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def _1(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -831,11 +862,10 @@ def _1(self):
     self.fd(perpendicular)
     self.lt(90)
 
-
     # calculating angle
     perp = perpendicular / 4
     hyp = hypot(perp, perp)
-    angle = asin(perp/hyp) * (180 / pi)
+    angle = asin(perp / hyp) * (180 / pi)
 
     # now making the slash
     self.seth(180)
@@ -845,9 +875,10 @@ def _1(self):
     # setting the cursor for next number
     setpen(self, perpendicular / 2)
 
+
 def _2(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -883,9 +914,10 @@ def _2(self):
     # setting the cursor for next number
     setpen(self, perpendicular / 2)
 
+
 def _3(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -907,9 +939,10 @@ def _3(self):
     # setting the cursor for next number
     setpen(self, perpendicular / 2)
 
+
 def _4(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -917,7 +950,7 @@ def _4(self):
     # making the perpendicular
     self.up()
     base = perpendicular / 2
-    self.fd( 3 * base / 4)
+    self.fd(3 * base / 4)
     self.seth(90)
     self.down()
     self.fd(perpendicular)
@@ -938,9 +971,10 @@ def _4(self):
     # setting the cursor for next number
     setpen(self, perpendicular / 2)
 
+
 def _5(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -961,14 +995,15 @@ def _5(self):
     self.seth(270)
     self.goto(save_x, save_y)
     self.down()
-    self.ellipse(perpendicular / 2, perpendicular / 4 + perpendicular / 60, angle = pi )
+    self.ellipse(perpendicular / 2, perpendicular / 4 + perpendicular / 60, angle=pi)
 
     # setting the cursor for next number
     setpen(self, perpendicular / 2)
 
+
 def _6(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -977,19 +1012,20 @@ def _6(self):
     self.up()
     self.goto(save_x + perpendicular / 2.5, save_y + perpendicular - perpendicular / 8)
     self.down()
-    self.ellipse(perpendicular / 4, perpendicular / 1.5, angle = pi / 5, heading = 90)
+    self.ellipse(perpendicular / 4, perpendicular / 1.5, angle=pi / 5, heading=90)
 
     # making the upper curve and the inner circle
-    self.ellipse(perpendicular / 4, perpendicular / 2, heading = 180, angle = pi)
+    self.ellipse(perpendicular / 4, perpendicular / 2, heading=180, angle=pi)
     self.seth(0)
-    self.ellipse(perpendicular / 4, perpendicular / 4 , angle = 2 * pi - pi / 1.5)
+    self.ellipse(perpendicular / 4, perpendicular / 4, angle=2 * pi - pi / 1.5)
 
     # setting the cursor for next number
     setpen(self, perpendicular / 2)
 
+
 def _7(self):
-    global len, save_x, save_y
-    perpendicular = len
+    global length, save_x, save_y
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -1011,9 +1047,10 @@ def _7(self):
     # setting the cursor for next alphabet
     setpen(self, perpendicular / 2)
 
+
 def _8(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -1035,9 +1072,10 @@ def _8(self):
     # setting the cursor for next number
     setpen(self, perpendicular / 2)
 
+
 def _9(self):
-    global len
-    perpendicular = len
+    global length
+    perpendicular = length
 
     # saving coordinates for original location
     savepos(self)
@@ -1051,20 +1089,21 @@ def _9(self):
 
     # moving the cursor and drawing the cursor
     self.up()
-    self.goto(save_x , save_y + perpendicular / 5)
+    self.goto(save_x, save_y + perpendicular / 5)
     self.down()
     self.ellipse(perpendicular / 4, perpendicular / 2, angle=pi / 3, heading=270)
     self.up()
     self.goto(save_x + perpendicular / 4, save_y)
     self.down()
-    self.ellipse(perpendicular / 4, perpendicular / 2, angle = pi / 2 + pi / 10)
+    self.ellipse(perpendicular / 4, perpendicular / 2, angle=pi / 2 + pi / 10)
 
     # setting the cursor for next number
     setpen(self, perpendicular / 2)
 
+
 def _0(self):
-    global len, save_x, save_y
-    perpendicular = len
+    global length, save_x, save_y
+    perpendicular = length
 
     # saving coordinates of original location
     savepos(self)
@@ -1099,13 +1138,13 @@ if __name__ == '__main__':
     # setting the screen for the turtle cursor
     screen = Screen()
     screen.screensize(apen.xcor(), apen.ycor())
-    screen.setup(width = 1.0, height = 1.0, startx = None, starty = None)
+    screen.setup(width=1.0, height=1.0, startx=None, starty=None)
     screen_width = 1366.00
     screen_height = 768.00
     screen.setworldcoordinates(0.00, 0.00, screen_width, screen_height)
 
     # getting the size of the alphabet
-    len = 100
+    length = 75
 
     # setting the pen attributes and it's coordinates
     apen.pensize(5)
@@ -1116,9 +1155,11 @@ if __name__ == '__main__':
     apen.down()
 
     # storing function names
-    alphabets = {'0':_0,'9':_9,'8':_8,'7':_7,'6':_6,'5':_5,'4':_4,'3':_3,'2':_2,'1':_1, 'a':a,'b':b,'c':c,'d':d,
-                 'e':e,'f':f,'g':g,'h':h,'i':i,'j':j,'k':k,'l':l,'m':m,'n':n,'o':o,'p':p,'q':q,'r':r,'s':s,'t':t,
-                 'u':u,'v':v,'w':w,'x':x,'y':y,'z':z}
+    alphabets = {'0': _0, '9': _9, '8': _8, '7': _7, '6': _6, '5': _5, '4': _4, '3': _3, '2': _2, '1': _1, 'a': a,
+                 'b': b, 'c': c, 'd': d,
+                 'e': e, 'f': f, 'g': g, 'h': h, 'i': i, 'j': j, 'k': k, 'l': l, 'm': m, 'n': n, 'o': o, 'p': p, 'q': q,
+                 'r': r, 's': s, 't': t,
+                 'u': u, 'v': v, 'w': w, 'x': x, 'y': y, 'z': z}
 
     # storing validated input
     storeinput = []
@@ -1141,4 +1182,3 @@ if __name__ == '__main__':
             apen.goto(apen.xcor() + 20.0, apen.ycor())
             apen.down()
     done()
-
