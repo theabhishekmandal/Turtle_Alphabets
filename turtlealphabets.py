@@ -1137,7 +1137,7 @@ if __name__ == '__main__':
 
     # setting the screen for the turtle cursor
     screen = Screen()
-    screen.screensize(apen.xcor(), apen.ycor())
+    screen.screensize(canvwidth=int(apen.xcor()), canvheight=int(apen.ycor()))
     screen.setup(width=1.0, height=1.0, startx=None, starty=None)
     screen_width = 1366.00
     screen_height = 768.00
