@@ -25,7 +25,7 @@ pip install Turtle
 INPUT - abhishek
 OUTPUT -
 ```
-![turtlealphabet](https://github.com/theabhishekmandal/Turtle_Alphabets/blob/master/image.png)
+![](2020-06-06 14-47-57.gif)
 
 
 ## Limitations
